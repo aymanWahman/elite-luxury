@@ -25,12 +25,7 @@ export const getUsers = cache(
     return db.user.findMany({
       select: {
         ...secureUserSelect,
-        parent: {
-          select: secureUserSelect,
-        },
-        children: {
-          select: secureUserSelect,
-        },
+
       },
       orderBy: { createdAt: "desc" }, // ترتيب تنازلي لسهولة المتابعة
     });
@@ -46,18 +41,7 @@ export const getUser = cache(
   async (userId: string) => {
     if (!userId) return null;
 
-    return db.user.findUnique({
-      where: { id: userId },
-      select: {
-        ...secureUserSelect,
-        parent: {
-          select: secureUserSelect,
-        },
-        children: {
-          select: secureUserSelect,
-        },
-      },
-    });
+   
   },
   // الـ Dynamic Tag مأمن ومربوط بالـ ID بالملي
   (userId: string) => (userId ? [`user-${userId}`] : ["user-none"]),
