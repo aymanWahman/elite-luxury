@@ -182,9 +182,7 @@ const useFormFields = ({
   ];
 
   const getFormFields = (): IFormField[] => {
-    if (slug && slug.includes(`${Routes.ADMIN}/${Pages.NODES}`)) {
-      return nodeFields();
-    }
+   
 
     switch (slug) {
       case Pages.LOGIN:

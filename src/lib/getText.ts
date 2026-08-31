@@ -1,5 +1,5 @@
 import { Locale } from "@/i18n.config";
-import { LocalizedText } from "@/types/node";
+import { LocalizedText } from "@/types/app";
 
 /**
  * دالة جلب النص المترجم بناءً على اللغة الممررة

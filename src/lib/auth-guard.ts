@@ -52,7 +52,7 @@ export async function requireTeacher() {
   const session = await requireAuth();
 
   if (
-    session.user.role !== UserRole.TEACHER &&
+    
     session.user.role !== UserRole.ADMIN
   ) {
     throw new Error(
@@ -70,7 +70,7 @@ export async function requireParent() {
   const session = await requireAuth();
 
   if (
-    session.user.role !== UserRole.PARENT &&
+    session.user.role !== UserRole.DEPUTY &&
     session.user.role !== UserRole.ADMIN
   ) {
     throw new Error(
@@ -89,7 +89,6 @@ export async function requireStudent() {
   const session = await requireAuth();
 
   if (
-    session.user.role !== UserRole.STUDENT &&
     session.user.role !== UserRole.ADMIN
   ) {
     throw new Error(
