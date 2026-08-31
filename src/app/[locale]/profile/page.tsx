@@ -41,36 +41,7 @@ async function ProfilePage({ params }: PageProps) {
   let DashboardIcon = Sparkles;
   let cardGradient = "from-sky-50 to-white";
 
-  if (userRole === UserRole.TEACHER) {
-    dashboardHref = `/${locale}/${Routes.TEACHER}`;
-    dashboardLabel = translations.navbar.teacher;
-    reportDescription = isAr
-      ? "إدارة الفصول، رصد الغياب، وإضافة التقارير السلوكية للأبناء."
-      : "Manage classes, track attendance, and add behavior reports.";
-    DashboardIcon = ShieldAlert;
-    cardGradient = "from-amber-50/60 via-amber-50/10 to-white";
-  } else if (userRole === UserRole.PARENT) {
-    // 🎯 تصحيح المسار ليتوجه إلى لوحة الـ parent الموحدة والمعزولة مباشرة بدون /dashboard
-    dashboardHref = `/${locale}/parent`;
-    dashboardLabel = isAr
-      ? "👨‍👦 متابعة تقارير الأبناء"
-      : "👨‍👦 Children Reports Dashboard";
-    reportDescription = isAr
-      ? "تابع درجات اختبارات أطفالك، وملاحظات المدرسين السلوكية أولاً بأول."
-      : "Track your children's quiz scores and teachers' behavior remarks.";
-    DashboardIcon = UserCheck;
-    cardGradient = "from-indigo-50/60 via-indigo-50/10 to-white";
-  } else if (userRole === UserRole.STUDENT) {
-    dashboardHref = `/${locale}/student`; // تأكد أن لوحة الطالب مستقرة هنا أو في الخريطة
-    dashboardLabel = isAr
-      ? "🏆 لوحة إنجازاتي وشرفي"
-      : "🏆 My Achievements Dashboard";
-    reportDescription = isAr
-      ? "شاهد الدروس التي أتممتها بنجاح، وراجع نقاط الـ XP والأوسمة التي حصدتها!"
-      : "View your successfully completed lessons, XP points, and unlocked badges!";
-    DashboardIcon = Award;
-    cardGradient = "from-emerald-50/60 via-emerald-50/10 to-white";
-  }
+
 
   // عمل Deep Copy آمن لكائن الـ user لإرضاء الـ Form
   const safeUser = JSON.parse(JSON.stringify(session.user));
@@ -91,9 +62,7 @@ async function ProfilePage({ params }: PageProps) {
               <div>
                 <h2 className="text-xl font-black text-slate-800 flex items-center gap-1.5">
                   {session.user.name}
-                  {userRole === UserRole.STUDENT && (
-                    <Flame className="text-orange-500 fill-orange-500 w-5 h-5 animate-bounce" />
-                  )}
+               
                 </h2>
                 <span className="inline-block mt-1 px-3 py-0.5 bg-slate-100 border-2 border-slate-300 rounded-xl text-xs font-black text-slate-500 uppercase tracking-wide">
                   {userRole}
