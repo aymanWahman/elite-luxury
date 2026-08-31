@@ -1,0 +1,208 @@
+/* Intro.css */
+:root {
+  --Intro-face: white;
+  --Intro-picorna: orange;
+  --Intro-skin: gray;
+}
+
+.Intro {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  z-index: 4;
+  position: relative;
+  transition: transform 1s ease-in-out 0ms;
+}
+
+.Intro * {
+  position: absolute;
+}
+
+.Intro:active {
+  transform: scale(1.5);
+  cursor: not-allowed;
+}
+
+.Intro-head {
+  width: 50%;
+  height: 45%;
+  background: linear-gradient(45deg, var(--Intro-skin), rgb(239, 240, 228));
+  border-radius: 10%;
+  top: 10%;
+  left: 25%;
+  z-index: 1;
+}
+
+.Intro-face {
+  width: 60%;
+  height: 70%;
+  background-color: var(--Intro-face);
+  border-radius: 10%;
+  top: 15%;
+}
+
+.Intro-face.left {
+  left: 5%;
+}
+
+.Intro-face.right {
+  right: 5%;
+}
+
+.Intro-chin {
+  width: 90%;
+  height: 70%;
+  background-color: var(--Intro-face);
+  top: 25%;
+  left: 5%;
+  border-radius: 10%;
+}
+
+.Intro-eye {
+  width: 15%;
+  height: 17%;
+  background-color: black;
+  top: 45%;
+  border-radius: 50%;
+}
+
+.Intro-eye.left {
+  left: 25%;
+}
+
+.Intro-eye.right {
+  right: 25%;
+}
+
+.Intro-eye-lid {
+  width: 150%;
+  height: 100%;
+  background-color: var(--Intro-face);
+  top: 25%;
+  left: -23%;
+  border-radius: 50%;
+}
+
+.Intro-blush {
+  width: 15%;
+  height: 10%;
+  background-color: pink;
+  top: 65%;
+  border-radius: 50%;
+}
+
+.Intro-blush.left {
+  left: 15%;
+}
+
+.Intro-blush.right {
+  right: 15%;
+}
+
+/* إزالة المنقار وتحويله إلى فم */
+.Intro-mouth {
+  width: 30%;
+  height: 10%;
+  background-color: black;
+  border-radius: 50% 50% 0 0;
+  top: 70%;
+  left: 35%;
+}
+
+@keyframes talking {
+  0% {
+    height: 10%;
+  }
+  50% {
+    height: 30%;
+  }
+  100% {
+    height: 10%;
+  }
+}
+
+.Intro-mouth {
+  animation: talking 1s infinite ease-in-out;
+}
+
+.Intro-body {
+  width: 3%;
+  height: 45%;
+  background: linear-gradient(
+    45deg,
+    rgb(134, 133, 133) 0%,
+    rgb(234, 231, 231) 25%,
+    white 67%
+  );
+  border-radius: 80% 80% 100% 100%;
+  top: 40%;
+  left: 48%;
+}
+
+.Intro-body::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 45%;
+  background-color: var(--Intro-skin);
+  top: 10%;
+  left: 25%;
+  border-radius: 0% 0% 100% 100%;
+  opacity: 70%;
+}
+
+.Intro-arm {
+  width: 30%;
+  height: 60%;
+  background: linear-gradient(90deg, var(--Intro-skin), rgb(209, 210, 199));
+  border-radius: 30% 30% 30% 120%;
+  z-index: -1;
+}
+
+.Intro-arm.left {
+  top: 35%;
+  left: 5%;
+  transform-origin: top left;
+  transform: rotate(130deg) scaleX(-1);
+  animation: wave 3s linear infinite;
+}
+
+.Intro-arm.right {
+  top: 0%;
+  right: -5%;
+  transform: rotate(-45deg);
+}
+
+@keyframes wave {
+  10% {
+    transform: rotate(110deg) scaleX(-1);
+  }
+  20% {
+    transform: rotate(130deg) scaleX(-1);
+  }
+  30% {
+    transform: rotate(110deg) scaleX(-1);
+  }
+  40% {
+    transform: rotate(130deg) scaleX(-1);
+  }
+}
+
+.Intro-foot {
+  width: 15%;
+  height: 30%;
+  background-color: var(--Intro-picorna);
+  top: 85%;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.Intro-foot.left {
+  left: 25%;
+  transform: rotate(80deg);
+}
+
+.Intro-foot.right {
+  right: 25%;
+  transform: rotate(-80deg);
+}

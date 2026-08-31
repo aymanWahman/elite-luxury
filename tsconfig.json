@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "plugins": [
       {
@@ -19,16 +23,23 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "src/**/*",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts"
-  ],
-  "exclude": ["node_modules"]
+    ".next/types/app/[locale]/course/[courseSlug]/page.ts",
+    ".next/types/app/[locale]/page.ts",
+    ".next/types/app/[locale]/learn/[...Slug]/page.ts",
+    ".next/types/app/[locale]/learn/page.ts"
+, "next.config.js", "src/hooks/useStepEngine.ts", "src/app/[locale]/(journey)/journey/_hooks/useHeartbeat.ts"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

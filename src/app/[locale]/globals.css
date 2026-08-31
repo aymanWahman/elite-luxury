@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Green Background & Dark Text for Light Mode */
+    --background: 152 40% 95%;
+    --foreground: 0 0% 12%;
+
+    /* Light Emerald Cards for Contrast */
+    --card: 152 35% 98%;
+    --card-foreground: 0 0% 12%;
+    --popover: 152 35% 98%;
+    --popover-foreground: 0 0% 12%;
+
+    /* Soft Luxury Gold (Primary) */
+    --primary: 42 65% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary & Muted Tones */
+    --secondary: 152 30% 90%;
+    --secondary-foreground: 152 60% 15%;
+    --muted: 152 25% 88%;
+    --muted-foreground: 152 30% 25%;
+    --accent: 42 60% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Utility Colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 152 25% 82%;
+    --input: 152 25% 82%;
+    --ring: 42 65% 45%;
+
+    --chart-1: 42 65% 45%;
+    --chart-2: 152 50% 35%;
+    --chart-3: 152 30% 20%;
+    --chart-4: 38 75% 55%;
+    --chart-5: 25 85% 50%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Pure Black Background & White Text for Dark Mode */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    /* Dark Charcoal Cards */
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Glowing Gold (Primary) */
+    --primary: 42 70% 52%;
+    --primary-foreground: 0 0% 7%;
+
+    /* Dark Accents & Muted Elements */
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 42 65% 48%;
+    --accent-foreground: 0 0% 7%;
+
+    /* Utility Colors */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 42 70% 52%;
+
+    --chart-1: 42 70% 52%;
+    --chart-2: 152 50% 45%;
+    --chart-3: 42 50% 70%;
+    --chart-4: 152 40% 60%;
+    --chart-5: 30 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .container {
+    @apply mx-auto px-4 md:px-8 lg:px-16 xl:px-32;
+  }
+  .section-gap {
+    @apply my-6 md:my-8;
+  }
+  .element-center {
+    @apply flex items-center justify-center;
+  }
+}
+
+html[lang="ar"] div[role="dialog"] button {
+  left: 24px !important;
+  right: auto !important;
+}
+
+html[lang="en"] div[role="dialog"] button {
+  left: auto !important;
+  right: 24px !important;
+}
+
+html[dir="rtl"] {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[dir="ltr"] {
+  font-family: 'Cairo', sans-serif;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+@font-face {
+  font-family: 'UthmanicHafs';
+  src: url('https://cdn.jsdelivr.net/gh/KingFahdComplex/UthmanicHafsWebFont@v1.0/fonts/UthmanicHafs1-Ver18.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.quran-text {
+  font-family: 'UthmanicHafs', 'Amiri Quran', serif;
+}
+
+/* 🎯 تم إصلاح الصياغة هنا لمنع تعارض مجمع الـ CSS */
+@property --angle {
+  syntax: "*";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.border-gradient {
+  position: relative;
+}
+
+.border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit; 
+  padding: 3px; 
+  background: conic-gradient(from var(--angle), #6366f1, #a855f7, #ec4899, #6366f1);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: spinBorder 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spinBorder {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@layer utilities {
+  .animate-once-spin {
+    animation: spinOnce 1s ease-out forwards;
+  }
+
+  .hover-bounce-active:hover {
+    animation: cartoonBounce 0.6s ease-in-out infinite; 
+  }
+}
+
+@keyframes spinOnce {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes cartoonBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px); 
+  }
+}

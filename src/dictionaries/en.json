@@ -1,0 +1,211 @@
+{
+  "logo": "Elite Luxury",
+  "home": {
+    "hero": {
+      "title": "Elite Luxury",
+      "description": "An integrated platform providing structured paths.",
+      "Hadith": "Be scholars, or learners, or listeners — and do not be the fourth, lest you perish.",
+      "startLearnning": "🎯 Start journey",
+      "aboutUs": "About Us"
+    },
+    "about": {
+      "learnWith": "Enjoy with",
+      "ourStory": "Our Journey",
+      "aboutUs": "Who We Are ?",
+      "Dua": "O Allah, grant us of Your immense bounty in this world and the Hereafter.",
+      "descriptions": {
+        "one": "Welcome to AA.Learn, your premier destination for mastering human languages and programming languages alike. We offer carefully designed courses covering everything from popular spoken languages to cutting-edge programming technologies.",
+        "two": "We believe every learner deserves an educational experience that matches their goals and learning style. That's why we meticulously design each course, ensuring quality content, engaging materials, and practical applications in every lesson.",
+        "three": "Join us on a journey of knowledge, where each language you learn becomes a new tool for personal and professional growth. AA.Learn is not just a platform, but a complete language education experience."
+      },
+      "cards": {
+        "missionTitle": "📚 Our Mission",
+        "missionText": "To provide every learner with an educational experience that empowers them to master languages, whether human or programming, with effectiveness and enjoyment.",
+        "visionTitle": "🌍 Our Vision",
+        "visionText": "To become the leading platform for comprehensive language education, bridging cultures and technologies through learning.",
+        "identityTitle": "💡 Our Identity",
+        "identityText": "Every language opens doors — taught with expertise, learned for life.",
+        "slogan": "Your Learning... Your Way",
+        "subSlogan": "Fluency starts here.",
+        "button": "Explore Our Courses"
+      }
+    },
+    "contact": {
+      "dontHesitate": "Don't hesitate",
+      "contactUs": "Contact Us"
+    }
+  },
+  "navbar": {
+    "home": " Offers",
+    "about": "About Us",
+    "lang": "Languages",
+    "mother": "Mother Care",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "signOut": "Sign Out",
+    "profile": "Profile",
+    "admin": "Admin"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter your password"
+      },
+      "submit": "Login",
+      "authPrompt": {
+        "message": "Don't have an account? ",
+        "signUpLinkText": "Sign Up"
+      }
+    },
+    "register": {
+      "title": "Create Account",
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter your password"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "Re-enter your password"
+      },
+      "submit": "Register",
+      "authPrompt": {
+        "message": "Already have an account? ",
+        "loginLinkText": "Login"
+      }
+    }
+  },
+  "validation": {
+    "nameRequired": "Name is required",
+    "validEmail": "Must be a valid email address",
+    "passwordMinLength": "Password must be at least 6 characters",
+    "passwordMaxLength": "Password must be at most 40 characters",
+    "confirmPasswordRequired": "Confirm password is required",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "messages": {
+    "invalidCredentials": "Invalid email or password",
+    "userNotFound": "User not found",
+    "incorrectPassword": "Incorrect password",
+    "loginSuccessful": "Login successful",
+    "unexpectedError": "An unexpected error occurred",
+    "userAlreadyExists": "User already exists",
+    "accountCreated": "Account created successfully",
+    "updateProfileSucess": "Profile updated successfully",
+    "courseAdded": "Course added successfully",
+    "updateCourseSucess": "Course updated successfully",
+    "deleteCourseSucess": "Course deleted successfully",
+    "courseNotFound": "Course not found",
+    "languageAdded": "Language added successfully",
+    "updateLanguageSucess": "Language updated successfully",
+    "deleteLanguageSucess": "Language deleted successfully",
+    "languageIdRequired": "Language ID is required",
+    "updateUserSucess": "User updated successfully",
+    "deleteUserSucess": "User deleted successfully",
+    "invalidId": "Invalid ID",
+    "imageRequired": "Image is required",
+    "languageNotFound": "Language not found",
+    "languageAlreadyExists": "Language already exists",
+    "Logic": "We have been taught the language of birds.",
+    "Solomon": "Solomon (peace be upon him) said:",
+    "tryLater": "Please try again later",
+    "backToSection": "Back to Section",
+    "audioNotSupported": "Your browser does not support the audio element.",
+    "done": "Done",
+    "close": "Close",
+    "errorLoadingData": "Error loading data. Please try again later.",
+    "video": "Introductory Video"
+  },
+  "profile": {
+    "title": "Profile",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Enter your phone number",
+        "validation": {
+          "required": "Phone number is required",
+          "invalid": "Please enter a valid phone number"
+        }
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "Enter your address",
+        "validation": {
+          "required": "Address is required"
+        }
+      },
+      "postalCode": {
+        "label": "Postal Code",
+        "placeholder": "Enter your postal code",
+        "validation": {
+          "required": "Postal code is required",
+          "invalid": "Please enter a valid postal code"
+        }
+      },
+      "city": {
+        "label": "City",
+        "placeholder": "Enter your city",
+        "validation": {
+          "required": "City is required"
+        }
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Enter your country",
+        "validation": {
+          "required": "Country is required"
+        }
+      }
+    }
+  },
+  "admin": {
+    "tabs": {
+      "profile": "Profile",
+      "languages": "Languages",
+      "users": "Users",
+      "reports": "Reports"
+    }
+  },
+  "save": "Save",
+  "edit": "Edit",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "sizes": "Sizes",
+  "ProductColor": "Colors",
+  "create": "Create",
+  "levelOne": "Level One",
+  "copyRight": "© 2026 All Rights Reserved",
+  "Dua": "And say, 'My Lord, increase me in knowledge.'",
+  "startread": "And We have certainly made the Qur'an easy for remembrance, so is there any who will remember?",
+  "startRead": "So when you recite the Qur'an, seek refuge in Allah from Satan, the expelled [from His mercy].",
+  "designed": "Special Education Specialist and Founder of the Learn Educational Platform, focused on delivering educational content through a simple, engaging, and research-based approach that combines storytelling, interactive learning, and educational games to help learners build knowledge step by step.",
+  "myName": "Elite Luxury",
+  "backTo": "Back To ",
+  "nameOfAllah": "In the name of Allah, the Entirely Merciful, the Especially Merciful"
+}
