@@ -50,14 +50,12 @@ function Form({ translations }: { translations: Translations }) {
   const router = useRouter();
 
   const [state, setState] = useState<FormState>(initialState);
-  const [selectedRole, setSelectedRole] = useState<UserRole>(UserRole.STUDENT); // 🚀 الـ State الآن تعتمد على الـ Enum
+  const [selectedRole, setSelectedRole] = useState<UserRole>(UserRole.USER); // 🚀 الـ State الآن تعتمد على الـ Enum
   const [studentEmail, setStudentEmail] = useState<string>("");
 
   const handleAction = async (formData: FormData) => {
     formData.set("role", selectedRole);
-    if (selectedRole === UserRole.PARENT) {
-      formData.set("studentEmail", studentEmail.trim().toLowerCase());
-    }
+   
 
     setState((prev) => ({
       ...prev,
@@ -142,50 +140,11 @@ function Form({ translations }: { translations: Translations }) {
           onChange={(e) => setSelectedRole(e.target.value as UserRole)}
           className="w-full p-3 font-bold bg-background text-foreground border border-input rounded-xl focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer h-[50px]"
         >
-          <option
-            value={UserRole.STUDENT}
-            className="bg-background text-foreground"
-          >
-            👦 بطل صغير (طالب)
-          </option>
-          <option
-            value={UserRole.PARENT}
-            className="bg-background text-foreground"
-          >
-            👨‍👩‍👦 ولي أمر (متابع)
-          </option>
-          <option
-            value={UserRole.TEACHER}
-            className="bg-background text-foreground"
-          >
-            📚 معلم / معلمة
-          </option>
+          
         </select>
       </div>
 
-      {/* حقل إيميل الابن للأب - متوافق مع الدارك مود والتنبيهات الموزونة */}
-      {selectedRole === UserRole.PARENT && (
-        <div
-          className="flex flex-col gap-2 p-4 bg-amber-50/10 dark:bg-amber-950/20 border-2 border-dashed border-amber-500/40 rounded-2xl text-right"
-          dir="rtl"
-        >
-          <label className="text-sm font-black text-amber-600 dark:text-amber-400">
-            📧 البريد الإلكتروني لابنك البطل الحقيقي:
-          </label>
-          <input
-            type="email"
-            value={studentEmail}
-            onChange={(e) => setStudentEmail(e.target.value)}
-            placeholder="student@example.com"
-            className="w-full p-3 font-bold bg-background text-foreground border border-input rounded-xl focus:outline-none focus:ring-2 focus:ring-ring text-left"
-            required
-          />
-          <p className="text-[11px] font-medium text-muted-foreground">
-            💡 تلميح: يجب أن يقوم الطالب بإنشاء حسابه أولاً على المنصة باستخدام
-            هذا البريد حتى تتمكن من ربطه بحسابك.
-          </p>
-        </div>
-      )}
+     
 
       <SubmitButton translations={translations} />
     </form>
