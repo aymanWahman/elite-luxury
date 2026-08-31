@@ -83,18 +83,7 @@ export const signUpSchema = (translations: Translations) => {
         "كلمتا المرور غير متطابقتين",
       path: ["confirmPassword"],
     })
-    .refine(
-      (data) => {
-        if (data.role === "PARENT" && !data.studentEmail) {
-          return false;
-        }
-        return true;
-      },
-      {
-        message: "برجاء إدخال البريد الإلكتروني للابن لربط الحساب",
-        path: ["studentEmail"],
-      },
-    );
+   
 };
 
 /**

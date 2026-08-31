@@ -104,7 +104,7 @@ export const signup = async (prevState: unknown, formData: FormData) => {
     }
 
     // 2. فلترة الدور والتحقق الآمن من الـ Enum
-    const rawRole = ((rawFormData.role as string) || "STUDENT").toUpperCase();
+    const rawRole = ((rawFormData.role as string) || "USER").toUpperCase();
     const selectedRole = Object.values(UserRole).includes(rawRole as UserRole)
       ? (rawRole as UserRole)
       : UserRole.USER;
