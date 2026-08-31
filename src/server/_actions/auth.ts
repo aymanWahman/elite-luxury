@@ -75,18 +75,27 @@ export const login = async (
 };
 
 /**
- * 📝 دالة إنشاء حساب جديد المأمنة والمطورة (Signup Action)
+ * 📝 دالة إنشاء حساب جديد (Signup Action)
  */
 export const signup = async (prevState: unknown, formData: FormData) => {
   const locale = await getCurrentLocale();
   const translations = await getTrans(locale);
 
   const rawFormData = Object.fromEntries(formData.entries());
+  
+  // تطهير البيانات وتجنب إرجاع كلمات المرور في كائن الـ Response
+  const safeFormData = {
+    name: rawFormData.name as string,
+    email: rawFormData.email as string,
+    role: rawFormData.role as string,
+  };
 
   try {
+    const email = (rawFormData.email as string || "").trim().toLowerCase();
+
     // 1. التحقق من وجود الحساب مسبقاً
     const existingUser = await db.user.findUnique({
-      where: { email: (rawFormData.email as string).trim().toLowerCase() },
+      where: { email },
     });
 
     if (existingUser) {
@@ -98,8 +107,8 @@ export const signup = async (prevState: unknown, formData: FormData) => {
           email:
             translations.messages?.userAlreadyExists ||
             "هذا الحساب مسجل بالفعل",
-        }, // 🚀 تأمين الـ Input Boundary
-        formData: rawFormData,
+        },
+        formData: safeFormData,
       };
     }
 
@@ -109,22 +118,17 @@ export const signup = async (prevState: unknown, formData: FormData) => {
       ? (rawRole as UserRole)
       : UserRole.USER;
 
-    let linkedStudentId: string | null = null;
-
-
-    // 4. تشفير كلمة المرور
+    // 3. تشفير كلمة المرور
     const hashedPassword = await bcrypt.hash(
       rawFormData.password as string,
       10,
     );
 
-    
-
-    // 6. مسار الحسابات العادية (طالب / معلم / مستخدم عام)
+    // 4. إنشاء الحساب
     await db.user.create({
       data: {
         name: rawFormData.name as string,
-        email: (rawFormData.email as string).trim().toLowerCase(),
+        email,
         password: hashedPassword,
         role: selectedRole,
       },
@@ -144,7 +148,7 @@ export const signup = async (prevState: unknown, formData: FormData) => {
           ? "❌ حدث خطأ داخلي في السيرفر أثناء المعالجة"
           : "Internal server error",
       error: {},
-      formData: rawFormData,
+      formData: safeFormData,
     };
   }
 };
