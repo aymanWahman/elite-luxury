@@ -107,46 +107,10 @@ export const signup = async (prevState: unknown, formData: FormData) => {
     const rawRole = ((rawFormData.role as string) || "STUDENT").toUpperCase();
     const selectedRole = Object.values(UserRole).includes(rawRole as UserRole)
       ? (rawRole as UserRole)
-      : UserRole.STUDENT;
+      : UserRole.USER;
 
     let linkedStudentId: string | null = null;
 
-    // 3. مسار التحقق الخاص بولي الأمر (Parent Profile Connection)
-    if (selectedRole === UserRole.PARENT) {
-      const studentEmail = rawFormData.studentEmail as string;
-      if (!studentEmail) {
-        return {
-          status: 400,
-          message:
-            locale === "ar"
-              ? "برجاء إدخال البريد الإلكتروني للابن لربط الحساب"
-              : "Please enter your student's email to link accounts",
-          error: { studentEmail: "حقل مطلوب" },
-          formData: rawFormData,
-        };
-      }
-
-      const studentUser = await db.user.findUnique({
-        where: { email: studentEmail.trim().toLowerCase() },
-      });
-
-      if (!studentUser) {
-        return {
-          status: 404,
-          message:
-            locale === "ar"
-              ? "❌ بريد الابن غير مسجل! اطلب من ابنك يسجل حسابه أولاً."
-              : "❌ Student email not registered yet!",
-          error: {
-            studentEmail:
-              locale === "ar" ? "بريد الابن غير مسجل" : "Email not found",
-          },
-          formData: rawFormData,
-        };
-      }
-
-      linkedStudentId = studentUser.id;
-    }
 
     // 4. تشفير كلمة المرور
     const hashedPassword = await bcrypt.hash(
@@ -154,33 +118,7 @@ export const signup = async (prevState: unknown, formData: FormData) => {
       10,
     );
 
-    // 5. 🚀 استخدام الـ Prisma Transaction لتأمين عمليتين (إنشاء الأب + تحديث الابن) ككتلة واحدة لا تتجزأ
-    if (selectedRole === UserRole.PARENT && linkedStudentId) {
-      await db.$transaction(async (tx) => {
-        const parentUser = await tx.user.create({
-          data: {
-            name: rawFormData.name as string,
-            email: (rawFormData.email as string).trim().toLowerCase(),
-            password: hashedPassword,
-            role: selectedRole,
-          },
-        });
-
-        await tx.user.update({
-          where: { id: linkedStudentId },
-          data: { parentId: parentUser.id },
-        });
-      });
-
-      return {
-        status: 201,
-        message:
-          locale === "ar"
-            ? "تم إنشاء حساب ولي الأمر وربطه بالابن بنجاح! 🎉"
-            : "Parent account created and linked successfully!",
-        error: {},
-      };
-    }
+    
 
     // 6. مسار الحسابات العادية (طالب / معلم / مستخدم عام)
     await db.user.create({
