@@ -49,9 +49,11 @@ export default async function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextAuthSessionProvider>
-            <Header />
+            {/* 🚀 تمرير locale للـ Header */}
+            <Header  />
             <main className="pt-24 print:mt-0 print:pt-0">{children}</main>
-            <Footer />
+            {/* 🚀 تمرير locale للـ Footer */}
+            <Footer locale={locale} />
             <Toaster />
           </NextAuthSessionProvider>
         </ThemeProvider>

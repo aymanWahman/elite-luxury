@@ -35,8 +35,23 @@
       "contactUs": "اتصل بنا"
     }
   },
+
+  "explore": {
+    "heroTitle": "عش تجربة الفخامة الخالصة",
+    "featuredTitle": "فنادقنا وأجنتنا المميزة"
+  },
+  
+  "footer": {
+    "quickLinks": "روابط سريعة",
+    "ourServices": "خدماتنا",
+    "newsletter": "النشرة البريدية",
+    "subscribe": "اشترك الآن",
+    "enterEmail": "أدخل بريدك الإلكتروني",
+    "allRightsReserved": "جميع الحقوق محفوظة."
+  },
+
   "navbar": {
-    "home": "العروض",
+    "home": "تواصل معنا",
     "about": "من نحن",
     "lang": "اللغات",
     "mother": "رعاية الأم",

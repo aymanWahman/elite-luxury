@@ -30,7 +30,7 @@ function Navbar({
     {
       id: "home",
       title: translations.navbar.home,
-      href: Routes.ROOT,
+      href: Routes.CONTACT,
     },
      
   ];

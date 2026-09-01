@@ -62,7 +62,7 @@ async function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4 w-full">
             {/* زر احجز رحلتك / ابدأ */}
             <Link
-              href={`/${locale}/${Routes.ROOT}`}
+              href={`/${locale}/${Routes.EXPLORE}`}
               className={`${buttonVariants({
                 size: "lg",
               })} space-x-2 w-full sm:w-auto !px-8 !py-6 !rounded-full text-lg font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300 text-center justify-center items-center animate-float`}

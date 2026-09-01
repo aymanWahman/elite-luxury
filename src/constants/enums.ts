@@ -13,6 +13,7 @@ export enum Routes {
   ROOT = "/",
   ABOUT = "about",
   CONTACT = "contact",
+  EXPLORE = "explore",
   AUTH = "auth",
   PROFILE = "profile",
   ADMIN = "admin",

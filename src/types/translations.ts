@@ -45,6 +45,21 @@ export type Translations = {
     };
   };
 
+   explore: {
+      heroTitle: string;
+      featuredTitle: string;
+    };
+
+  footer: {
+    quickLinks: string;
+    ourServices: string;
+    newsletter: string;
+    subscribe: string;
+    enterEmail: string;
+    allRightsReserved: string;
+  
+};
+
   navbar: {
     home: string;
     about: string;

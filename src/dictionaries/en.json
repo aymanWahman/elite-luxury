@@ -35,8 +35,22 @@
       "contactUs": "Contact Us"
     }
   },
+
+  "explore": {
+    "heroTitle": "Experience Pure Luxury",
+    "featuredTitle": "Our Featured Hotels & Suites"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "ourServices": "Our Services",
+    "newsletter": "Newsletter",
+    "subscribe": "Subscribe Now",
+    "enterEmail": "Enter your email",
+    "allRightsReserved": "All rights reserved."
+  },
+
   "navbar": {
-    "home": " Offers",
+    "home": " Contact",
     "about": "About Us",
     "lang": "Languages",
     "mother": "Mother Care",
