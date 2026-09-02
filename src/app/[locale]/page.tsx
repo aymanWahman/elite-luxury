@@ -1,48 +1,30 @@
 import Link from "@/components/link";
 import { buttonVariants } from "@/components/ui/button";
-import { Languages, Routes } from "@/constants/enums";
-import { getCurrentLocale } from "@/lib/getCurrentLocale";
+import { Routes } from "@/constants/enums";
 import getTrans from "@/lib/translation";
+import { Locale } from "@/i18n.config";
 import {
   ArrowRightCircle,
-  CheckCircle2,
   HeartHandshake,
   Compass,
   MapPin,
 } from "lucide-react";
 import Image from "next/image";
-import { db } from "../../lib/prisma";
 
-async function Home() {
-  const locale = await getCurrentLocale();
-  const { home } = await getTrans(locale);
-  const { hero } = home;
-  const isArabic = locale === Languages.ARABIC;
+interface HomeProps {
+  params: Promise<{ locale: Locale }>;
+}
+
+async function Home({ params }: HomeProps) {
+  // 🚀 قراءة locale مباشرة من مسار الصفحة لمنع أي تضارب
+  const { locale } = await params;
+  const isArabic = locale === "ar";
+
+  const trans = await getTrans(locale);
+  const hero = trans?.home?.hero || {};
 
   return (
     <main className="container space-y-16 py-6">
-      {/* 1. قسم البانر العلوي الترحيبي */}
-      {/* <section className="h-[25vh] md:h-[30vh] mx-auto">
-        <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-md">
-          <Image
-            src="https://res.cloudinary.com/dktod7mod/image/upload/v1788210789/elite/elite-logo_h1xt5f.jpg"
-            alt={hero.title || (isArabic ? "رحلات العمرة والحج" : "Hajj & Umrah Trips")}
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
-            <p className="text-md md:text-xl lg:text-2xl font-medium text-center max-w-3xl italic leading-relaxed">
-              {hero.Hadith ||
-                (isArabic
-                  ? "«العُمْرَةُ إِلَى العُمْرَةِ كَفَّارَةٌ لِمَا بَيْنَهُمَا، وَالحَجُّ المَبْرُورُ لَيْسَ لَهُ جَزَاءٌ إِلَّا الجَنَّةُ»"
-                  : "“Umrah is an expiation for the sins committed between it and the previous one, and the reward of Hajj Mabrur is nothing except Paradise.”")}
-            </p>
-          </div>
-        </div>
-      </section> */}
-
       {/* 2. قسم التحويل الرئيسي (Main Conversion Zone) */}
       <section className="px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch section-gap">
         {/* العمود الأول: النصوص والأزرار */}
@@ -56,7 +38,7 @@ async function Home() {
           <p className="text-accent my-4 text-lg">
             {hero.description ||
               (isArabic
-                ? "نرافقكم خطوة بخطوة من حجز الرحلة وحتى إتمام المناسك مع فندق راقية، إرشاد ديني متميز، وخدمات نقل متطورة."
+                ? "نرافقكم خطوة بخطوة من حجز الرحلة وحتى إتمام المناسك مع فنادق راقية، إرشاد ديني متميز، وخدمات نقل متطورة."
                 : "We accompany you step by step from booking to completing your rituals with premium hotels, religious guidance, and transport.")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4 w-full">
@@ -65,14 +47,16 @@ async function Home() {
               href={`/${locale}/${Routes.EXPLORE}`}
               className={`${buttonVariants({
                 size: "lg",
-              })} space-x-2 w-full sm:w-auto !px-8 !py-6 !rounded-full text-lg font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300 text-center justify-center items-center animate-float`}
+              })} flex items-center justify-center gap-2 w-full sm:w-auto !px-8 !py-6 !rounded-full text-lg font-bold shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300 text-center animate-float`}
             >
               <span>
                 {hero.startLearnning ||
                   (isArabic ? "استكشف برامج العمرة" : "Explore Umrah Packages")}
               </span>
               <ArrowRightCircle
-                className={`w-6 h-6 inline-block mx-1 ${isArabic ? "rotate-180" : ""}`}
+                className={`w-6 h-6 inline-block transition-transform duration-300 ${
+                  isArabic ? "rotate-180" : ""
+                }`}
               />
             </Link>
 
@@ -83,7 +67,9 @@ async function Home() {
             >
               <span>{hero.aboutUs || (isArabic ? "عن المنصة" : "About Us")}</span>
               <ArrowRightCircle
-                className={`w-5 h-5 ${isArabic ? "rotate-180" : ""}`}
+                className={`w-5 h-5 transition-transform duration-300 ${
+                  isArabic ? "rotate-180" : ""
+                }`}
               />
             </Link>
           </div>
