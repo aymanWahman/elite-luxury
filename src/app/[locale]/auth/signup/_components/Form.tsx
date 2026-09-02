@@ -1,3 +1,4 @@
+
 "use client";
 
 import FormFields from "@/components/form-fields/form-fields";
@@ -128,23 +129,6 @@ function Form({ translations }: { translations: Translations }) {
           </div>
         );
       })}
-
-      {/* اختيار الرول - متوافق بالكامل مع الـ Enum والـ Dark Mode */}
-      <div className="flex flex-col gap-1 text-right w-full mb-4" dir="rtl">
-        <label className="text-sm font-bold text-muted-foreground mb-1">
-          اختر هويتك في المنصة: ✨
-        </label>
-        <select
-          name="role"
-          value={selectedRole}
-          onChange={(e) => setSelectedRole(e.target.value as UserRole)}
-          className="w-full p-3 font-bold bg-background text-foreground border border-input rounded-xl focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer h-[50px]"
-        >
-          
-        </select>
-      </div>
-
-     
 
       <SubmitButton translations={translations} />
     </form>

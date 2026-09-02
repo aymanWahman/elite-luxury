@@ -13,7 +13,7 @@ export type Translations = {
     hero: {
       title: string;
       description: string;
-      Hadith: string;
+      
       startLearnning: string;
       aboutUs: string;
     };

@@ -2,12 +2,11 @@
   "logo": "Elite Luxury",
   "home": {
     "hero": {
-      "title": "Elite Luxury",
-      "description": "An integrated platform providing structured paths.",
-      "Hadith": "Be scholars, or learners, or listeners — and do not be the fourth, lest you perish.",
-      "startLearnning": "🎯 Start journey",
-      "aboutUs": "About Us"
-    },
+  "title": "Elite Luxury",
+  "description": "Your gateway to an extraordinary spiritual pilgrimage. We offer bespoke Hajj and Umrah services with uncompromised comfort and elegance in the Holy Lands.",
+  "startLearnning": "🎯 Start Your Journey",
+  "aboutUs": "About Us"
+},
     "about": {
   "learnWith": "Experience Pure Elegance",
   "ourStory": "Our Journey",
@@ -218,7 +217,7 @@
   "Dua": "And say, 'My Lord, increase me in knowledge.'",
   "startread": "And We have certainly made the Qur'an easy for remembrance, so is there any who will remember?",
   "startRead": "So when you recite the Qur'an, seek refuge in Allah from Satan, the expelled [from His mercy].",
-  "designed": "Special Education Specialist and Founder of the Learn Educational Platform, focused on delivering educational content through a simple, engaging, and research-based approach that combines storytelling, interactive learning, and educational games to help learners build knowledge step by step.",
+  "designed": "Specializing in Hajj and Umrah pilgrimage management and luxury hospitality through the Elite Luxury platform. We are dedicated to guiding pilgrims through a seamless spiritual journey built on meticulous planning, premium comfort, and comprehensive support, helping you perform your sacred rituals with peace of mind every step of the way.",
   "myName": "Elite Luxury",
   "backTo": "Back To ",
   "nameOfAllah": "In the name of Allah, the Entirely Merciful, the Especially Merciful"

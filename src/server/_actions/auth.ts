@@ -1,3 +1,97 @@
+// "use server";
+
+// import { getCurrentLocale } from "@/lib/getCurrentLocale";
+// import { db } from "@/lib/prisma";
+// import getTrans from "@/lib/translation";
+// import { signUpSchema } from "@/validations/auth";
+// import bcrypt from "bcrypt";
+// import { UserRole } from "@prisma/client";
+
+// export const signup = async (prevState: unknown, formData: FormData) => {
+//   try {
+//     const locale = await getCurrentLocale();
+//     const translations = await getTrans(locale);
+
+//     const rawFormData = Object.fromEntries(formData.entries());
+
+//     const dataToValidate = {
+//       name: (rawFormData.name as string) || "",
+//       email: (rawFormData.email as string) || "",
+//       password: (rawFormData.password as string) || "",
+//       confirmPassword: (rawFormData.confirmPassword as string) || "",
+//       role: (rawFormData.role as string) || "USER",
+//       studentEmail: (rawFormData.studentEmail as string) || "",
+//     };
+
+//     const safeFormData = {
+//       name: dataToValidate.name,
+//       email: dataToValidate.email,
+//     };
+
+//     // 1. التحقق عبر Zod
+//     const schema = signUpSchema(translations);
+//     const validationResult = schema.safeParse(dataToValidate);
+
+//     if (!validationResult.success) {
+//       const formattedErrors: Record<string, string> = {};
+//       validationResult.error.issues.forEach((issue) => {
+//         if (issue.path[0]) {
+//           formattedErrors[issue.path[0].toString()] = issue.message;
+//         }
+//       });
+
+//       return {
+//         status: 400,
+//         message: translations.messages?.unexpectedError || "بيانات غير صالحة",
+//         error: formattedErrors,
+//         formData: safeFormData,
+//       };
+//     }
+
+//     const { name, email, password } = validationResult.data;
+//     const cleanEmail = email.trim().toLowerCase();
+
+//     // 2. التحقق من وجود الحساب
+//     const existingUser = await db.user.findUnique({
+//       where: { email: cleanEmail },
+//     });
+
+//     if (existingUser) {
+//       return {
+//         status: 409,
+//         message: translations.messages?.userAlreadyExists || "الحساب مسجل بالفعل",
+//         error: { email: translations.messages?.userAlreadyExists || "الحساب مسجل بالفعل" },
+//         formData: safeFormData,
+//       };
+//     }
+
+//     // 3. التشفير والتخزين
+//     const hashedPassword = await bcrypt.hash(password, 10);
+
+//     await db.user.create({
+//       data: {
+//         name,
+//         email: cleanEmail,
+//         password: hashedPassword,
+//         role: UserRole.USER,
+//       },
+//     });
+
+//     return {
+//       status: 201,
+//       message: translations.messages?.accountCreated || "تم إنشاء الحساب بنجاح",
+//       error: {},
+//     };
+//   } catch (error: unknown) {
+//     console.error("❌ SIGNUP_ACTION_CRASH:", error);
+//     return {
+//       status: 500,
+//       message: "حدث خطأ أثناء معالجة الطلب، يرجى إعادة المحاولة",
+//       error: {},
+//     };
+//   }
+// };
+
 "use server";
 
 import { Locale } from "@/i18n.config";
