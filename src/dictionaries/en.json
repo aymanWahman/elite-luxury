@@ -9,27 +9,27 @@
       "aboutUs": "About Us"
     },
     "about": {
-      "learnWith": "Enjoy with",
-      "ourStory": "Our Journey",
-      "aboutUs": "Who We Are ?",
-      "Dua": "O Allah, grant us of Your immense bounty in this world and the Hereafter.",
-      "descriptions": {
-        "one": "Welcome to AA.Learn, your premier destination for mastering human languages and programming languages alike. We offer carefully designed courses covering everything from popular spoken languages to cutting-edge programming technologies.",
-        "two": "We believe every learner deserves an educational experience that matches their goals and learning style. That's why we meticulously design each course, ensuring quality content, engaging materials, and practical applications in every lesson.",
-        "three": "Join us on a journey of knowledge, where each language you learn becomes a new tool for personal and professional growth. AA.Learn is not just a platform, but a complete language education experience."
-      },
-      "cards": {
-        "missionTitle": "📚 Our Mission",
-        "missionText": "To provide every learner with an educational experience that empowers them to master languages, whether human or programming, with effectiveness and enjoyment.",
-        "visionTitle": "🌍 Our Vision",
-        "visionText": "To become the leading platform for comprehensive language education, bridging cultures and technologies through learning.",
-        "identityTitle": "💡 Our Identity",
-        "identityText": "Every language opens doors — taught with expertise, learned for life.",
-        "slogan": "Your Learning... Your Way",
-        "subSlogan": "Fluency starts here.",
-        "button": "Explore Our Courses"
-      }
-    },
+  "learnWith": "Experience Pure Elegance",
+  "ourStory": "Our Journey",
+  "aboutUs": "Who We Are",
+  "Dua": "O Allah, grant us of Your immense bounty in this world and the Hereafter.",
+  "descriptions": {
+    "one": "Welcome to Elite Luxury, your premier destination for extraordinary hospitality and bespoke stays in Makkah. We offer meticulously curated suites and world-class accommodation services tailored for royalty and distinguished guests.",
+    "two": "We believe every guest deserves a hospitality experience that reflects their highest standards. That is why we meticulously refine every detail, ensuring timeless luxury, seamless comfort, and unparalleled service in every moment.",
+    "three": "Embark on a journey of prestige and serenity. Elite Luxury is not just an accommodation provider, but a complete luxury hospitality experience crafted for those who seek perfection."
+  },
+  "cards": {
+    "missionTitle": "📚 Our Mission",
+    "missionText": "To provide every guest with an exceptional hospitality experience that combines luxury, comfort, and reverence in the heart of Makkah.",
+    "visionTitle": "🌍 Our Vision",
+    "visionText": "To stand as the leading benchmark for bespoke luxury hospitality, bridging timeless traditions with modern sophistication.",
+    "identityTitle": "💡 Our Identity",
+    "identityText": "Every stay creates timeless memories — crafted with mastery, remembered forever.",
+    "slogan": "Your Comfort... Your Prestige",
+    "subSlogan": "Unmatched luxury starts here.",
+    "button": "Explore Our Luxury Suites"
+  }
+},
     "contact": {
       "dontHesitate": "Don't hesitate",
       "contactUs": "Contact Us"

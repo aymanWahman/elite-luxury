@@ -102,18 +102,18 @@ async function About() {
       <section className="text-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-border/80 bg-card/50 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-sm text-center">
           {/* حاوية الشعار */}
-          <div className="flex justify-center items-center w-full h-full">
-            <div className="relative w-full aspect-square max-w-[180px] md:max-w-[220px] rounded-full border border-border/80 shadow-md overflow-hidden group">
-              <Image
-                src="https://res.cloudinary.com/dktod7mod/image/upload/v1788210789/elite/elite-logo_h1xt5f.jpg"
-                alt="Elite Luxury Hajj & Umrah"
-                fill
-                className="object-cover object-[center_20%] duration-500 transition-transform group-hover:scale-105"
-                loading="eager"
-                priority
-              />
-            </div>
-          </div>
+         <div className="flex justify-center items-center w-full h-full">
+  <div className="relative w-full aspect-square max-w-[180px] md:max-w-[220px] rounded-full border border-border/80 shadow-md overflow-hidden group">
+    <Image
+      src="https://res.cloudinary.com/dktod7mod/image/upload/v1788210789/elite/elite-logo_h1xt5f.jpg"
+      alt="Elite Luxury Hajj & Umrah"
+      fill
+      className="object-cover scale-[1.35] translate-y-3 duration-500 transition-transform group-hover:scale-[1.4]"
+      loading="eager"
+      priority
+    />
+  </div>
+</div>
 
           {/* عمود النصوص والأزرار */}
           <div
