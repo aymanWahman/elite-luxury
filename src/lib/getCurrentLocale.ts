@@ -4,13 +4,16 @@ import { headers } from "next/headers";
 export const getCurrentLocale = async (): Promise<Locale> => {
   try {
     const headersList = await headers();
-    // قراءة referer الصفحة القادم منها الطلب أو x-url
-    const referer = headersList.get("referer") || headersList.get("x-url");
+    
+    // 🚀 نقرأ x-url الممرر من الميدلوير للطلب الحالي، وإذا لم يوجد نقرأ referer كخيار بديل
+    const currentUrl = headersList.get("x-url") || headersList.get("referer");
 
-    if (!referer) return i18n.defaultLocale as Locale;
+    if (!currentUrl) return i18n.defaultLocale as Locale;
 
-    const url = new URL(referer);
+    const url = new URL(currentUrl);
     const pathname = url.pathname;
+    
+    // استخراج أول جزء من المسار مثل: /ar/about -> ar
     const segments = pathname.split("/").filter(Boolean);
     const localeCandidate = segments[0] as Locale;
 
@@ -20,28 +23,6 @@ export const getCurrentLocale = async (): Promise<Locale> => {
 
     return i18n.defaultLocale as Locale;
   } catch {
-    // في حال حدوث أي خطأ في تحليل الرابط نعود للغة الافتراضية فوراً دون إسقاط السيرفر
     return i18n.defaultLocale as Locale;
   }
 };
-
-
-// import { i18n, Locale } from "@/i18n.config";
-// import { headers } from "next/headers";
-
-// export const getCurrentLocale = async (): Promise<Locale> => {
-//   const url = (await headers()).get("x-url");
-
-//   // 🚀 التعديل هنا: نستخدم القيمة الافتراضية المحددة في الـ config بتاعك (واللي هي Languages.ARABIC)
-//   if (!url) return i18n.defaultLocale;
-
-//   try {
-//     const pathname = new URL(url).pathname;
-//     const locale = pathname.split("/")[1] as Locale;
-
-//     // 🚀 إذا لم يجد لغة في الرابط، يرجع للغة الافتراضية المحددة في النظام عندك
-//     return locale || i18n.defaultLocale;
-//   } catch {
-//     return i18n.defaultLocale;
-//   }
-// };

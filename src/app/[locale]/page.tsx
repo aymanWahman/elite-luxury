@@ -35,7 +35,7 @@ async function Home({ params }: HomeProps) {
                 ? "رحلتك إلى بيت الله الحرام بأعلى معايير الراحة والسكينة"
                 : "Your Spiritual Journey to the Holy Mosque with Divine Comfort")}
           </h1>
-          <p className="text-accent my-4 text-lg">
+          <p className=" my-4 text-lg">
             {hero.description ||
               (isArabic
                 ? "نرافقكم خطوة بخطوة من حجز الرحلة وحتى إتمام المناسك مع فنادق راقية، إرشاد ديني متميز، وخدمات نقل متطورة."

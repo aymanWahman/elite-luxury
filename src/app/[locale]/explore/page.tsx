@@ -14,6 +14,15 @@ export default async function ExplorePage({ params: { locale } }: ExplorePagePro
 
   // مصفوفة الصور مترجمة
   const galleryImages = [
+   
+    {
+      url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788297546/elite/4_jmovot.jpg",
+      title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
+    },
+     {
+      url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788300149/elite/6_a3a6tz.jpg",
+      title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
+    },
     {
       url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788297421/elite/2_yfywcr.jpg",
       title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
@@ -21,11 +30,7 @@ export default async function ExplorePage({ params: { locale } }: ExplorePagePro
     {
       url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788297481/elite/3_qohtd6.jpg",
       title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
-    },
-    {
-      url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788297546/elite/4_jmovot.jpg",
-      title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
-    },
+    }, 
     {
       url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788299989/elite/5_xnpdol.jpg",
       title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
@@ -34,14 +39,7 @@ export default async function ExplorePage({ params: { locale } }: ExplorePagePro
       url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788300250/elite/7_rukhiq.jpg",
       title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
     },
-    {
-      url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788300299/elite/8_eysvle.jpg",
-      title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
-    },
-    {
-      url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788300149/elite/6_a3a6tz.jpg",
-      title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
-    },
+   
     {
       url: "https://res.cloudinary.com/dktod7mod/image/upload/v1788300346/elite/9_ryebe4.jpg",
       title: isAr ? "أجنحة فاخرة" : "Luxury Suite",
