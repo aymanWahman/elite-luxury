@@ -35,7 +35,7 @@ async function Header() {
             className="object-contain rounded-full border border-border"
             priority
           />
-          <span className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+          <span className="text-primary font-serif text-2xl md:text-3xl font-bold tracking-tight">
             {logoText}
           </span>
         </Link>
