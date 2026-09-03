@@ -6,7 +6,7 @@ import { cn } from "../../lib/utils";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { Bus, Compass, Hotel, Mail, Phone, ShieldCheck } from "lucide-react";
+import { Bus, Compass, Hotel, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 async function About() {
   const locale = await getCurrentLocale();
@@ -102,18 +102,18 @@ async function About() {
       <section className="text-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-border/80 bg-card/50 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-sm text-center">
           {/* حاوية الشعار */}
-         <div className="flex justify-center items-center w-full h-full">
-  <div className="relative w-full aspect-square max-w-[180px] md:max-w-[220px] rounded-full border border-border/80 shadow-md overflow-hidden group">
-    <Image
-      src="https://res.cloudinary.com/dktod7mod/image/upload/v1788210789/elite/elite-logo_h1xt5f.jpg"
-      alt="Elite Luxury Hajj & Umrah"
-      fill
-      className="object-cover scale-[1.35] translate-y-3 duration-500 transition-transform group-hover:scale-[1.4]"
-      loading="eager"
-      priority
-    />
-  </div>
-</div>
+          <div className="flex justify-center items-center w-full h-full">
+            <div className="relative w-full aspect-square max-w-[180px] md:max-w-[220px] rounded-full border border-border/80 shadow-md overflow-hidden group">
+              <Image
+                src="https://res.cloudinary.com/dktod7mod/image/upload/v1788210789/elite/elite-logo_h1xt5f.jpg"
+                alt="Elite Luxury Hajj & Umrah"
+                fill
+                className="object-cover scale-[1.35] translate-y-3 duration-500 transition-transform group-hover:scale-[1.4]"
+                loading="eager"
+                priority
+              />
+            </div>
+          </div>
 
           {/* عمود النصوص والأزرار */}
           <div
@@ -181,15 +181,28 @@ async function About() {
         </div>
       </section>
 
-      {/* وسائل التواصل */}
-      <div className="flex flex-col sm:flex-row gap-4 py-2 justify-center">
-        <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/40 px-4 py-2 rounded-full justify-center md:justify-start">
-          <Mail className="w-4 h-4 text-primary" />
+      {/* وسائل التواصل وعنوان الشركة */}
+      <div className="flex flex-col md:flex-row flex-wrap gap-4 py-4 justify-center items-center">
+        {/* عنوان الشركة */}
+        <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/40 px-5 py-2.5 rounded-full justify-center border border-border/40">
+          <MapPin className="w-4 h-4 text-primary shrink-0" />
+          <span>
+            {isArabic
+              ? "مكة المكرمة / العزيزية - برج الصفا الإداري - الدور الرابع"
+              : "Makkah / Al Aziziyah - Al Safa Administrative Tower - 4th Floor"}
+          </span>
+        </div>
+
+        {/* البريد الإلكتروني */}
+        <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/40 px-5 py-2.5 rounded-full justify-center border border-border/40">
+          <Mail className="w-4 h-4 text-primary shrink-0" />
           <span>elite@gmail.com</span>
         </div>
-        <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/40 px-4 py-2 rounded-full justify-center md:justify-start">
-          <Phone className="w-4 h-4 text-primary" />
-          <span dir="ltr">010000000</span>
+
+        {/* رقم الهاتف */}
+        <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/40 px-5 py-2.5 rounded-full justify-center border border-border/40">
+          <Phone className="w-4 h-4 text-primary shrink-0" />
+          <span dir="ltr">+966564715584</span>
         </div>
       </div>
     </main>

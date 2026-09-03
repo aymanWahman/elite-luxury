@@ -2,6 +2,7 @@ import Link from "../link";
 import { getCurrentLocale } from "@/lib/getCurrentLocale";
 import { Languages } from "@/constants/enums";
 import getTrans from "@/lib/translation";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export default async function Footer() {
   const locale = await getCurrentLocale();
@@ -73,14 +74,29 @@ export default async function Footer() {
             </ul>
           </div>
 
-          {/* 4. النشرة البريدية */}
+          {/* 4. معلومات الاتصال والعنوان */}
           <div className="space-y-4">
             <h4 className="text-amber-600 dark:text-amber-400 font-semibold">
-              {isAr ? "النشرة البريدية" : "Newsletter"}
+              {isAr ? "تواصل معنا" : "Contact Us"}
             </h4>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              {isAr ? "اشترك للحصول على أحدث العروض." : "Subscribe for latest offers."}
-            </p>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2.5">
+                <MapPin className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
+                  {isAr
+                    ? "مكة المكرمة / العزيزية - برج الصفا الإداري - الدور الرابع"
+                    : "Makkah / Al Aziziyah - Al Safa Administrative Tower - 4th Floor"}
+                </span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                <span dir="ltr">+966564715584</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                <span>elite@gmail.com</span>
+              </li>
+            </ul>
           </div>
 
         </div>

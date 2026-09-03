@@ -1,7 +1,7 @@
 import { Locale } from "@/i18n.config";
 import getTrans from "@/lib/translation";
 import { Languages } from "@/constants/enums";
-import { Phone, Mail, MapPin, MessageCircle, Star, Sparkles, Clock, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Star, Clock, ShieldCheck } from "lucide-react";
 
 interface ContactPageProps {
   params: Promise<{
@@ -12,11 +12,13 @@ interface ContactPageProps {
 export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
   const translations = await getTrans(locale);
-  const isAr = locale === Languages.ARABIC ;
+  const isAr = locale === Languages.ARABIC;
 
   // بيانات التواصل المباشر
-  const whatsappNumber = "966500000000"; // استبدل برقم الواتساب الخاص بك (مع رمز الدولة بدون +)
-  const phoneNumber = "+966500000000";  // استبدل برقم الهاتف
+  const whatsappNumber = "966564715584";
+  const phoneNumber = "+966564715584";  
+  const whatsappNumber2 = "966540424739"; 
+  const phoneNumber2 = "+966540424739"; 
   const emailAddress = "vip@elite-luxury.com";
 
   const defaultMessage = encodeURIComponent(
@@ -49,7 +51,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
           </p>
         </div>
 
-        {/* 2. كروت التواصل الفوري المباشر (Direct Action Cards) */}
+        {/* 2. كروت التواصل الفوري المباشر (المجموعة الأولى) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* كارت 1: الواتساب الفوري */}
@@ -119,7 +121,77 @@ export default async function ContactPage({ params }: ContactPageProps) {
 
         </div>
 
-        {/* 3. شريط المميزات والمعلومات الإضافية */}
+        {/* كروت التواصل الفوري المباشر (المجموعة الثانية) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* كارت 1: الواتساب الفوري 2 */}
+          <a
+            href={`https://wa.me/${whatsappNumber2}?text=${defaultMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-white dark:bg-zinc-900/80 border border-slate-200 dark:border-zinc-800 rounded-3xl p-8 shadow-xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/5 hover:border-emerald-500/50 transition-all duration-300 flex flex-col items-center text-center space-y-4 relative overflow-hidden backdrop-blur-xl"
+          >
+            <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300">
+              <MessageCircle className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                {isAr ? "محادثة واتساب فورية" : "Instant WhatsApp"}
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-zinc-400 mt-2 leading-relaxed">
+                {isAr ? "تحدث معنا عبر الواتساب للرد الفوري وتجهيز الحجوزات" : "Chat directly on WhatsApp for instant support"}
+              </p>
+            </div>
+            <span className="mt-auto inline-flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-4 py-2 rounded-xl">
+              {isAr ? "ابدأ المحادثة الآن" : "Start Chat Now"}
+            </span>
+          </a>
+
+          {/* كارت 2: الاتصال المباشر 2 */}
+          <a
+            href={`tel:${phoneNumber2}`}
+            className="group bg-white dark:bg-zinc-900/80 border border-slate-200 dark:border-zinc-800 rounded-3xl p-8 shadow-xl hover:shadow-amber-500/10 dark:hover:shadow-amber-500/5 hover:border-amber-500/50 transition-all duration-300 flex flex-col items-center text-center space-y-4 relative overflow-hidden backdrop-blur-xl"
+          >
+            <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform duration-300">
+              <Phone className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                {isAr ? "اتصال هاتف مباشر" : "Direct Call"}
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-zinc-400 mt-2 leading-relaxed dir-ltr">
+                {phoneNumber2}
+              </p>
+            </div>
+            <span className="mt-auto inline-flex items-center gap-2 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-4 py-2 rounded-xl">
+              {isAr ? "اتصل الآن" : "Call Now"}
+            </span>
+          </a>
+
+          {/* كارت 3: البريد الإلكتروني */}
+          <a
+            href={`mailto:${emailAddress}`}
+            className="group bg-white dark:bg-zinc-900/80 border border-slate-200 dark:border-zinc-800 rounded-3xl p-8 shadow-xl hover:shadow-amber-500/10 dark:hover:shadow-amber-500/5 hover:border-amber-500/50 transition-all duration-300 flex flex-col items-center text-center space-y-4 relative overflow-hidden backdrop-blur-xl"
+          >
+            <div className="w-16 h-16 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform duration-300">
+              <Mail className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                {isAr ? "البريد الرسمي" : "Email Concierge"}
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-zinc-400 mt-2 leading-relaxed">
+                {emailAddress}
+              </p>
+            </div>
+            <span className="mt-auto inline-flex items-center gap-2 text-xs font-semibold text-sky-600 dark:text-sky-400 bg-sky-500/10 px-4 py-2 rounded-xl">
+              {isAr ? "إرسال رسالة" : "Send Email"}
+            </span>
+          </a>
+
+        </div>
+
+        {/* 3. شريط المميزات والمعلومات الإضافية مع المقر الرئيسي الصحيح */}
         <div className="bg-white dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800/80 rounded-2xl p-6 shadow-sm backdrop-blur-xl grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           
           <div className="flex flex-col items-center space-y-2">
@@ -137,8 +209,10 @@ export default async function ContactPage({ params }: ContactPageProps) {
             <h4 className="text-sm font-semibold text-slate-900 dark:text-zinc-200">
               {isAr ? "المقر الرئيسي" : "Main Office"}
             </h4>
-            <p className="text-xs text-slate-500 dark:text-zinc-400">
-              {isAr ? "برج الساعة، مكة المكرمة" : "Clock Tower, Makkah"}
+            <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed px-2">
+              {isAr
+                ? "مكة المكرمة / العزيزية - برج الصفا الإداري - الدور الرابع"
+                : "Makkah / Al Aziziyah - Al Safa Administrative Tower - 4th Floor"}
             </p>
           </div>
 
